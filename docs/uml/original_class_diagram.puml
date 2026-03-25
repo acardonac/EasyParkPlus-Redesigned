@@ -1,0 +1,26 @@
+@startuml
+class ParkingLotManagerGUI
+class ParkingLot {
+  +createParkingLot()
+  +park()
+  +leave()
+  +status()
+  +chargeStatus()
+  +getSlotNumFromRegNum()
+  +getSlotNumFromColor()
+  +getRegNumFromColor()
+}
+class Vehicle
+class Car
+class Motorcycle
+class ElectricVehicle
+class ElectricCar
+class ElectricBike
+
+ParkingLotManagerGUI --> ParkingLot
+ParkingLot --> Vehicle
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+ElectricVehicle <|-- ElectricCar
+ElectricVehicle <|-- ElectricBike
+@enduml

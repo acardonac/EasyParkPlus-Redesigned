@@ -1,0 +1,21 @@
+@startuml
+start
+:User clicks button in GUI;
+:GUI reads form variables;
+:ParkingLot method called;
+if (EV?) then (yes)
+  if (Motorcycle?) then (yes)
+    :Create ElectricBike;
+  else (no)
+    :Create ElectricCar;
+  endif
+else (no)
+  if (Motorcycle?) then (yes)
+    :Create Car or Motorcycle based on flags;
+  else (no)
+    :Create Car;
+  endif
+endif
+:Write plain text to Tkinter output;
+stop
+@enduml

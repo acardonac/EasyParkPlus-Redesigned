@@ -1,0 +1,46 @@
+@startuml
+class Vehicle
+class Car
+class Motorcycle
+class Truck
+class Bus
+class AutonomousCar
+class ElectricCar
+class ElectricBike
+class AutonomousElectricCar
+class VehicleFactory
+class ParkingSlot
+class ParkingLot
+class ParkingService
+class SearchService
+class ValetService
+class CustomerService
+class AgentGateway
+class EventBus
+class Reservation
+class ParkingSession
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+Vehicle <|-- Truck
+Vehicle <|-- Bus
+Car <|-- AutonomousCar
+Car <|-- ElectricCar
+Motorcycle <|-- ElectricBike
+ElectricCar <|-- AutonomousElectricCar
+
+VehicleFactory --> Vehicle
+ParkingLot --> ParkingSlot
+ParkingService --> ParkingLot
+SearchService --> ParkingLot
+ValetService --> ParkingService
+CustomerService --> SearchService
+CustomerService --> ParkingService
+AgentGateway --> ParkingService
+AgentGateway --> ValetService
+AgentGateway --> CustomerService
+ParkingService --> EventBus
+ValetService --> EventBus
+ValetService --> Reservation
+ParkingService --> ParkingSession
+@enduml

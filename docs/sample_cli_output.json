@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "message": "Valet request completed successfully.",
+  "error_code": null,
+  "data": {
+    "reservation": {
+      "reservation_id": "res_demo01",
+      "customer_id": "cust_001",
+      "vehicle_regnum": "AUTO88",
+      "service_type": "vip_valet",
+      "assigned_slot_id": 4,
+      "status": "confirmed"
+    }
+  }
+}

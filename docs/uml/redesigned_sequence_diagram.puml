@@ -1,0 +1,24 @@
+@startuml
+actor User
+participant TkinterUI
+participant AgentGateway
+participant ValetService
+participant ParkingService
+participant VehicleFactory
+participant ParkingLot
+participant EventBus
+
+User -> TkinterUI: Request VIP valet
+TkinterUI -> AgentGateway: execute("request_valet", params)
+AgentGateway -> ValetService: request_valet(...)
+ValetService -> ParkingService: park_vehicle(...)
+ParkingService -> VehicleFactory: create_vehicle(...)
+VehicleFactory --> ParkingService: vehicle
+ParkingService -> ParkingLot: park_vehicle(vehicle)
+ParkingLot --> ParkingService: slot_id
+ParkingService -> EventBus: publish("vehicle_parked", ...)
+ValetService -> EventBus: publish("valet_assigned", ...)
+ValetService --> AgentGateway: success response
+AgentGateway --> TkinterUI: structured JSON response
+TkinterUI --> User: display result
+@enduml
